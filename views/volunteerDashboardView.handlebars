@@ -1,0 +1,310 @@
+<h1>Volunteer Dashboard</h1>
+<a id="logout" href="/logout">Logout</a>
+<div class="flex-box">
+    <div class="dashboard-container">
+        <div class="container-title-div">
+            <p class="container-title">User Profile</p>
+            <a id="edit-profile" href="/volunteer-dashboard/edit">Edit</a>
+        </div>
+        <div class="container-field">
+            <p class="container-label">First Name</p>
+            <p>{{user.firstName}}</p>
+        </div>
+        <div class="container-field">
+            <p class="container-label">Last Name</p>
+            <p>{{user.lastName}}</p>
+        </div>
+        <div class="container-field">
+            <p class="container-label">Username</p>
+            <p>{{user.username}}</p>
+        </div>
+        <div class="container-field">
+            <p class="container-label">Email</p>
+            <p>{{user.email}}</p>
+        </div>
+        <div class="container-field" id="skills-field">
+            <p class="container-label">Skills</p>
+            <script>
+                //display n/a when data doesn't exist
+                if ('{{user.skills}}'.length < 1) {
+                    document.write('<p>n/a</p>')
+                }
+            </script>
+            <div id="skills-container">
+                {{#each user.skills}}
+                <div class="skill">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="container-field" id="availability-field">
+            <p class="container-label">Typical Availability</p>
+            <div id="availability-container">
+                <script>
+                    //display n/a when data doesn't exist
+                    if ('{{user.availability}}'.length < 1) {
+                        document.write('<p>n/a</p>')
+                    }
+                </script>
+                
+                {{#each user.availability}}
+                    <div class="availability">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="container-field" id="scheduled-days-container">
+            <p class="container-label">Scheduled Days</p>
+            {{#each user.days}}
+                <div class="scheduled-day">{{this.day}}-{{this.activity}}</div>
+            {{/each}}
+            <script>
+                //display n/a when data doesn't exist
+                if ('{{user.days}}'.length < 1) {
+                    document.write('<p>n/a</p>')
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="container-title-div">
+            <p class="container-title">Calendar</p>
+            <div id="legend">
+                <div id="texting">
+                    <div id="inline-1"></div>
+                    <div class="legend-label">Scheduled</div>
+                </div>
+                <div>
+                    <div id="inline-2"></div>
+                    <div class="legend-label">Suggested</div>
+                </div>
+                <div>
+                    <div id="inline-3"></div>
+                    <div class="legend-label">Vacant</div>
+                </div>
+            </div>
+        </div>
+        <p class="calendar-title">October 2023</p>
+        <div class="calendar-container">
+            <div class="day-container">
+                <p class="day-of-week">SUN</p>
+            </div>
+            <div class="day-container">
+                <p class="day-of-week">MON</p>
+            </div>
+            <div class="day-container">
+                <p class="day-of-week">TUE</p>
+            </div>
+            <div class="day-container">
+                <p class="day-of-week">WED</p>
+            </div>
+            <div class="day-container">
+                <p class="day-of-week">THU</p>
+            </div>
+            <div class="day-container">
+                <p class="day-of-week">FRI</p>
+            </div>
+            <div class="day-container">
+                <p class="day-of-week">SAT</p>
+            </div>
+            <div class="day-container" id="231001">
+                <p class="day-label">1</p>
+            </div>
+            <div class="day-container" id="231002">
+                <p class="day-label">2</p>
+            </div>
+            <div class="day-container" id="231003">
+                <p class="day-label">3</p>
+            </div>
+            <div class="day-container" id="231004">
+                <p class="day-label">4</p>
+            </div>
+            <div class="day-container" id="231005">
+                <p class="day-label">5</p>
+            </div>
+            <div class="day-container" id="231006">
+                <p class="day-label">6</p>
+            </div>
+            <div class="day-container" id="231007">
+                <p class="day-label">7</p>
+            </div>
+            <div class="day-container" id="231008">
+                <p class="day-label">8</p>
+            </div>
+            <div class="day-container" id="231009">
+                <p class="day-label">9</p>
+            </div>
+            <div class="day-container" id="231010">
+                <p class="day-label">10</p>
+            </div>
+            <div class="day-container" id="231011">
+                <p class="day-label">11</p>
+            </div>
+            <div class="day-container" id="231012">
+                <p class="day-label">12</p>
+            </div>
+            <div class="day-container" id="231013">
+                <p class="day-label">13</p>
+            </div>
+            <div class="day-container" id="231014">
+                <p class="day-label">14</p>
+            </div>
+            <div class="day-container" id="231015">
+                <p class="day-label">15</p>
+            </div>
+            <div class="day-container" id="231016">
+                <p class="day-label">16</p>
+            </div>
+            <div class="day-container" id="231017">
+                <p class="day-label">17</p>
+            </div>
+            <div class="day-container" id="231018">
+                <p class="day-label">18</p>
+            </div>
+            <div class="day-container" id="231019">
+                <p class="day-label">19</p>
+            </div>
+            <div class="day-container" id="231020">
+                <p class="day-label">20</p>
+            </div>
+            <div class="day-container" id="231021">
+                <p class="day-label">21</p>
+            </div>
+            <div class="day-container" id="231022">
+                <p class="day-label">22</p>
+            </div>
+            <div class="day-container" id="231023">
+                <p class="day-label">23</p>
+            </div>
+            <div class="day-container" id="231024">
+                <p class="day-label">24</p>
+            </div>
+            <div class="day-container" id="231025">
+                <p class="day-label">25</p>
+            </div>
+            <div class="day-container" id="231026">
+                <p class="day-label">26</p>
+            </div>
+            <div class="day-container" id="231027">
+                <p class="day-label">27</p>
+            </div>
+            <div class="day-container" id="231028">
+                <p class="day-label">28</p>
+            </div>
+            <div class="day-container" id="231029">
+                <p class="day-label">29</p>
+            </div>
+            <div class="day-container" id="231030">
+                <p class="day-label">30</p>
+            </div>
+            <div class="day-container" id="231031">
+                <p class="day-label">31</p>
+            </div>
+            <div class="day-container">
+                <p class="next-month">1</p>
+            </div>
+            <div class="day-container">
+                <p class="next-month">2</p>
+            </div>
+            <div class="day-container">
+                <p class="next-month">3</p>
+            </div>
+            <div class="day-container">
+                <p class="next-month">4</p>
+            </div>
+        </div>
+        <form id="scheduling-form" method="post" action="/volunteer-dashboard/schedule-change">
+            <h3>Select Days to Volunteer</h3>
+            <input id="scheduling-form-submit-button" type="submit" value="Add to My Schedule">
+            <button id="clear-form-button" onclick="clearForm()">Clear</button>
+        </form>
+        <script>
+            /*** VISUALIZE SCHEDULING DATA ON CALENDAR, DEPENDING ON WHATS AVAILABLE WHEN ***/
+
+            //get data
+            let dailyData = JSON.parse('{{{days}}}')
+            let userId = '{{user._id}}'
+            let userSkills = '{{user.skills}}'.split(',')
+            let userAvailability = '{{user.availability}}'.split(',')
+
+            //write HTML
+            for (d of dailyData) {
+                let el = document.getElementById(d.day)
+
+                //start with all days as vacant
+                el.innerHTML += `
+                <div class='vacant day-activity' id='${d.day}-cook'>Cook</div>
+                <div class='vacant day-activity' id='${d.day}-drive'>Drive</div>
+                <div class='vacant day-activity' id='${d.day}-pack'>Pack</div>
+                `
+
+                //override classNames to show suggested days/activites, based on user's profile
+                if ((userAvailability.includes(d.dayName)) && (userSkills.includes('cooking'))) {
+                    el.children[1].className = 'vacant suggested day-activity'
+                }
+                if ((userAvailability.includes(d.dayName)) && (userSkills.includes('driving'))) {
+                    el.children[2].className = 'vacant suggested day-activity'
+                } 
+                if ((userAvailability.includes(d.dayName)) && (userSkills.includes('packing'))) {
+                    el.children[3].className = 'vacant suggested day-activity'
+                } 
+
+                //override classNames to show days/activities that have been taken by other volunteers
+                for (v of d.volunteers) {
+                    if (v.activity == 'cook') {
+                        el.children[1].className = 'taken day-activity'
+                    }
+                    if (v.activity == 'drive') {
+                        el.children[2].className = 'taken day-activity'
+                    } 
+                    if (v.activity == 'pack') {
+                        el.children[3].className = 'taken day-activity'
+                    } 
+                }
+
+                //override classNames to show days/activities that user has scheduled
+                for (v of d.volunteers) {
+
+                    if ((v.activity == 'cook') && (v.id == userId)) {
+                        el.children[1].className = 'volunteering day-activity'
+                    }
+                    if ((v.activity == 'drive') && (v.id == userId)) {
+                        el.children[2].className = 'volunteering day-activity'
+                    } 
+                    if ((v.activity == 'pack') && (v.id == userId)) {
+                        el.children[3].className = 'volunteering day-activity'
+                    } 
+                }
+
+            }
+    
+            /***** ADD SELECTED DAYS TO FORM *****/
+
+            //get elements
+            let allVacantActivities = document.getElementsByClassName('vacant')
+            let schedulingForm = document.getElementById('scheduling-form')
+
+            //create a function to clear selected days from form
+            function clearForm() {
+                schedulingForm.innerHTML = `
+                <h3>Select Days to Volunteer</h3>
+                <input id="scheduling-form-submit-button" type="submit" value="Add to My Schedule">
+                <button id="clear-form-button" onclick="clearForm()">Clear</button>
+                `
+            }
+            
+            //add functionality so that user can add days/activites to form by clicking on them
+            for (a of allVacantActivities) {
+                a.addEventListener('click', (el) => {
+                    let thisEl = el.srcElement
+                    let thisId = thisEl.id
+                    let split = thisId.split('-')
+                    let data = JSON.stringify({day: split[0], activity: split[1]})
+                    schedulingForm.innerHTML += `
+                        <div class='to-be-added'>${thisId}</div>
+                        <input type="hidden" name="volunteerdays" value='${data}'>`
+                })
+            }
+
+        </script>
+    </div>
+</div>

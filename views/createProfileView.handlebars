@@ -1,0 +1,60 @@
+<h1>Create Profile</h1>
+<a id="login" href="/login">Login</a>
+
+<form class="dashboard-container" id="create-profile-form" method="post" action="/create-profile/submit">
+    <div class="container-title-div">
+        <p class="container-title">User Profile</p>
+        <div id="submit-cancel">
+            <input type="submit" value="Create Profile" id="submit-volunteer">
+        </div>
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="firstname">First Name*</label>
+        <input class="container-input" id="firstname" name="firstname" type="text" required>
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="lastname">Last Name*</label>
+        <input class="container-input" id="lastname" name="lastname" type="text" required>
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="username">Username*</label>
+        <input class="container-input" id="username" name="username" type="text" required>
+        {{#if errMessage}}
+            <div class="error">{{errMessage}}</div>
+        {{/if}}
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="email">Email*</label>
+        <input class="container-input" id="email" name="email" type="text" required>
+    </div>
+    <div class="container-field">
+        <p class="container-label-edit">Skills</p>
+        <fieldset>
+            <input type="checkbox" id="cooking" name="skills" value="cooking">
+            <label for="cooking">Cooking</label>
+            <input type="checkbox" id="driving" name="skills" value="driving">
+            <label for="driving">Driving</label>
+            <input type="checkbox" id="packing" name="skills" value="packing">
+            <label for="packing">Packing</label>
+        </fieldset>
+    </div>
+    <div class="container-field">
+        <p class="container-label-edit">Typical Availability</p>
+        <fieldset>
+            <input type="checkbox" id="sun" name="availability" value="sun">
+            <label for="sun">Sun</label>
+            <input type="checkbox" id="mon" name="availability" value="mon">
+            <label for="mon">Mon</label>
+            <input type="checkbox" id="tue" name="availability" value="tue">
+            <label for="tue">Tue</label>
+            <input type="checkbox" id="wed" name="availability" value="wed">
+            <label for="wed">Wed</label>
+            <input type="checkbox" id="thu" name="availability" value="thu">
+            <label for="thu">Thu</label>
+            <input type="checkbox" id="fri" name="availability" value="fri">
+            <label for="fri">Fri</label>
+            <input type="checkbox" id="sat" name="availability" value="sat">
+            <label for="sat">Sat</label>
+        </fieldset>
+    </div>
+</form>

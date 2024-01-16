@@ -1,0 +1,139 @@
+<h1>Edit Profile</h1>
+<a id="logout" href="/logout">Logout</a>
+
+<form class="dashboard-container" id="edit-profile-form" method="post" action="/volunteer-dashboard/edit">
+    <div class="container-title-div">
+        <p class="container-title">User Profile</p>
+        <div id="submit-cancel">
+            <input type="submit" value="Submit" id="submit-volunteer">
+            <a id="cancel" href="/volunteer-dashboard">Cancel</a>
+        </div>
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="firstname">First Name</label>
+        <input class="container-input" id="firstname" name="firstname" type="text" placeholder="{{user.firstName}}">
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="lastname">Last Name</label>
+        <input class="container-input" id="lastname" name="lastname" type="text" placeholder="{{user.lastName}}">
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="username">Username</label>
+        <input class="container-input" id="username" name="username" type="text" placeholder="{{user.username}}">
+    </div>
+    <div class="container-field">
+        <label class="container-label-edit" for="email">Email</label>
+        <input class="container-input" id="email" name="email" type="text" placeholder="{{user.email}}">
+    </div>
+    <div class="container-field">
+        <p class="container-label-edit">Skills</p>
+        <fieldset>
+            <input type="checkbox" id="cooking" name="skills" value="cooking">
+            <label for="cooking">Cooking</label>
+            <input type="checkbox" id="driving" name="skills" value="driving">
+            <label for="driving">Driving</label>
+            <input type="checkbox" id="packing" name="skills" value="packing">
+            <label for="packing">Packing</label>
+            <script>
+                //this script sets the checked values for user's skills
+
+                let cooking = document.getElementById('cooking')
+                let driving = document.getElementById('driving')
+                let packing = document.getElementById('packing')
+                let arraySkill = '{{user.skills}}'.split(',')
+        
+                if (arraySkill.includes('cooking')) {
+                    cooking.checked = 'true'
+                }
+                if (arraySkill.includes('driving')) {
+                    driving.checked = 'true'
+                }
+                if (arraySkill.includes('packing')) {
+                    packing.checked = 'true'
+                }
+            </script>
+        </fieldset>
+    </div>
+    <div class="container-field">
+        <p class="container-label-edit">Typical Availability</p>
+        <fieldset>
+            <input type="checkbox" id="sun" name="availability" value="sun">
+            <label for="sun">Sun</label>
+            <input type="checkbox" id="mon" name="availability" value="mon">
+            <label for="mon">Mon</label>
+            <input type="checkbox" id="tue" name="availability" value="tue">
+            <label for="tue">Tue</label>
+            <input type="checkbox" id="wed" name="availability" value="wed">
+            <label for="wed">Wed</label>
+            <input type="checkbox" id="thu" name="availability" value="thu">
+            <label for="thu">Thu</label>
+            <input type="checkbox" id="fri" name="availability" value="fri">
+            <label for="fri">Fri</label>
+            <input type="checkbox" id="sat" name="availability" value="sat">
+            <label for="sat">Sat</label>
+            <script>
+                //this script sets the checked values for user's availability
+
+                let sun = document.getElementById('sun')
+                let mon = document.getElementById('mon')
+                let tue = document.getElementById('tue')
+                let wed = document.getElementById('wed')
+                let thu = document.getElementById('thu')
+                let fri = document.getElementById('fri')
+                let sat = document.getElementById('sat')
+                
+                let arrayAvail = '{{user.availability}}'.split(',')
+        
+                if (arrayAvail.includes('sun')) {
+                    sun.checked = 'true'
+                }
+                if (arrayAvail.includes('mon')) {
+                    mon.checked = 'true'
+                }
+                if (arrayAvail.includes('tue')) {
+                    tue.checked = 'true'
+                }
+                if (arrayAvail.includes('wed')) {
+                    wed.checked = 'true'
+                }
+                if (arrayAvail.includes('thu')) {
+                    thu.checked = 'true'
+                }
+                if (arrayAvail.includes('fri')) {
+                    fri.checked = 'true'
+                }
+                if (arrayAvail.includes('sat')) {
+                    sat.checked = 'true'
+                }
+            </script>
+        </fieldset>
+    </div>
+    <div class="container-field" id="scheduled-days-container">
+            <p class="container-label">Scheduled Days</p>
+            <script>
+                if ('{{user.days}}'.length < 1) {
+                    //display n/a when data doesn't exist
+                    document.write('<p>n/a</p>')
+                } else {
+                    //create list of scheduled days
+                    let userDays = JSON.parse('{{{userString}}}').days
+                    for (d of userDays) {
+                        let objectString = JSON.stringify({day: d.day, activity: d.activity})
+                        console.log(objectString)
+                        document.write(`
+                        <div class="editable-scheduled-day">
+                            <button class="delete-button" id="schedule-${d.day}-${d.activity}" onclick="tossIt('schedule-${d.day}-${d.activity}')">X</button>
+                            <label class="scheduled-day">${d.day}-${d.activity}</label>
+                            <input type="hidden" name="volunteerdays" value='${objectString}'>
+                        </div>
+                        `)
+                    }
+
+                    //enable buttons to delete scheduled day form elements
+                    function tossIt(id) {
+                        document.getElementById(id).parentElement.remove()
+                    }
+                }
+            </script>
+    </div>
+</form>

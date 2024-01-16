@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(77,77,77);
+}
+
+body {
+    margin: .75em;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin: 1em 0 1em 0
+}
+
+#logout, #login, #create-profile {
+    font-size: .75em;
+    margin: 1em auto 1em auto;
+    padding: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: fit-content;
+    display: block;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: rgb(77,77,77);
+    font-weight: bold;
+}
+
+.flex-box {
+    display: flex;
+    flex-wrap: no-wrap;
+    width: 100%;
+}
+
+#skills-flex, #availability-flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.dashboard-container {
+    background-color: white;
+    margin: 1em;
+    padding: 2em;
+    width: 100%;
+    min-width: 250px;
+    border-radius: .75em;
+    box-shadow: 0 0 5px rgb(197, 197, 197);
+}
+
+#create-profile-form, #edit-profile-form {
+    width: 50%;
+    min-width: 400px;
+    margin: 0 auto 0 auto;
+}
+
+#edit-profile, #cancel, #submit-volunteer, #scheduling-form-submit-button, #clear-form-button, #login-button {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    padding: .25em 1em .25em 1em;
+    border: none;
+    background-color: rgb(235,235,235);
+    color: rgb(127,127,127);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#submit-volunteer, #scheduling-form-submit-button, #login-button {
+    border: none;
+    background-color: #3273F6;
+    color: white;
+}
+
+#scheduling-form-submit-button {
+    margin-bottom: 1em;
+}
+
+#login-button {
+    margin: 0 auto 0 auto;
+    display: block;
+}
+
+#login-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 4em 0 0 0;
+    align-items: center;
+}
+
+#username-label {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+#username-input {
+    width: 100%;
+    height: 5em;
+    height: 1.5em;
+    text-align: center;
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    width: 250px;
+}
+
+.container-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.calendar-title {
+    border-style: none;
+    background-color: rgb(245,245,245);
+    text-align: center;
+    padding: .5em;
+}
+
+.container-title-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+
+.legend-label{
+    text-transform: uppercase;
+    font-size: .6em;
+    display: inline;
+}
+
+#inline-1, #inline-2, #inline-3 {
+    display: inline-block;
+    height: .6em;
+    width: .6em;
+    outline: solid;
+    outline-width: 2px;
+    margin-right: .15em;
+}
+
+#inline-1 {
+    background-color: rgb(251, 170, 140);;
+    outline-color: rgb(251, 170, 140);;
+}
+#inline-2 {
+    background-color: rgb(150, 230, 246);
+    outline-color: rgb(150, 230, 246);
+
+}
+#inline-3 {
+    background-color: white;
+    outline-color: rgb(150, 230, 246);
+}
+
+
+.container-label, .container-label-edit {
+    text-transform: uppercase;
+    display: block;
+    font-size: .75em;
+    color: rgb(127,127,127);
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: rgb(200,200,200);
+    margin-bottom: .5em;
+}
+
+.container-label-edit {
+    border: none !important;
+}
+
+.container-field {
+    margin-bottom: 1em;
+}
+
+.container-input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1em;
+    padding: .25em;
+}
+
+fieldset {
+    all: unset;
+}
+
+fieldset > label {
+    margin-right: .75em;
+}
+
+#skills-container, #availability-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.skill, .availability {
+    background-color: rgb(224, 234, 236);
+    padding: .25em;
+    padding-left: .75em;
+    padding-right: .75em;
+    margin-right: .5em;
+    border-radius: 2em;
+    margin-bottom: .75em;
+}
+
+.availability {
+    background-color: rgb(224, 234, 236);
+}
+
+.calendar-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 25px 1fr 1fr 1fr 1fr 1fr;
+    height: 450;
+    gap: 0px;
+}
+
+.day-container{
+    border-style: solid;
+    border-width: .5px;
+    border-color: rgb(220,220,220);
+    padding: .25em;
+}
+
+.day-of-week {
+    font-size: .75em;
+}
+
+.day-label {
+    font-size: .75em;
+    /* color: rgb(127,127,127); */
+    margin-bottom: .5em;
+}
+
+.next-month {
+    font-size: .75em;
+    color: rgb(200,200,200) !important;
+}
+
+.vacant, .taken, .volunteering {
+    font-size: .6em;
+    font-weight: bold;
+    text-align: center;
+    padding: .2em;
+    margin-bottom: .6em;
+    border-radius: 2em;
+}
+
+.vacant {
+    outline-style: solid;
+    outline-color: rgb(150, 230, 246);
+}
+
+.vacant:hover {
+    background-color: rgb(36, 108, 123) !important;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.suggested {
+    background-color: rgb(150, 230, 246);
+}
+
+.taken {
+    display: none;
+    background-color: rgb(225,225,225);
+    color: rgb(150,150,150);
+}
+
+.volunteering {
+    background-color: rgb(251, 170, 140);
+    outline-style: solid;
+    outline-color: rgb(251, 170, 140);
+}
+
+.error {
+    color: red;
+    font-size: .75em;
+    margin-top: .5em;
+}
+
+.delete-button {
+    /* all: revert;
+    height: 1.1em; */
+    text-transform: uppercase;
+    font-size: .75em;
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+    border: none;
+    background-color:rgb(246, 107, 107);
+    color: white;
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    background-color: rgb(77, 77, 77);
+    color: rgb(246, 107, 107);
+    cursor: pointer;
+}
+
+.editable-scheduled-day {
+    margin: .5em 0 .5em 0;
+}
